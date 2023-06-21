@@ -1,0 +1,51 @@
+<section class="py-5 bg-gray-300">
+    <h2 class="text-center font-serif uppercase text-4xl xl:text-5xl">Productos Nuevos</h2>
+    <button
+      class="absolute right-24 top-40 rounded-full bg-gradient-to-r from-sky-600 to-cyan-400 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+      (click)="nuevoProduct()">
+      <span class="rounded-full items-center bg-white px-8 py-3 inline-flex hover:bg-transparent">
+        <i class='fas fa-plus'></i>
+      </span>
+    </button>
+    <div class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <article
+        class="rounded-xl bg-white p-3 shadow-lg hover:shadow-xl hover:transform hover:scale-105 duration-300 cursor-pointer"
+        *ngFor="let product of products" (click)="verProduct(product.id)">
+        <div class="relative flex justify-end z-10">
+          <button
+            class="inline-flex absolute right-9 rounded-full bg-gradient-to-r from-sky-600 to-cyan-400 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+            (click)="editarProduct(product.id)">
+            <span class="rounded-full bg-white px-1.5 py-1 text-sm font-medium hover:bg-transparent">
+              <i class='fas fa-edit'></i>
+            </span>
+          </button>
+          <button
+            class="inline-flex absolute rounded-full bg-gradient-to-br from-pink-500 to-orange-400 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+            (click)="deleteProduct(product.id)">
+            <span class="rounded-full bg-white px-2.5 py-1 text-sm font-medium hover:bg-transparent">
+              <i class='fas fa-times'></i>
+            </span>
+          </button>
+        </div>
+        <a>
+          <div class="relative flex items-end overflow-hidden rounded-xl">
+            <img src="{{product.images}}" alt="Hotel Photo" />
+            <div class="absolute bottom-3 left-3 inline-flex items-center rounded-lg bg-white p-2 shadow-md">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20"
+                fill="currentColor">
+                <path
+                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+              <span class="ml-1 text-sm text-slate-400">4.9</span>
+            </div>
+          </div>
+  
+          <div class="mt-1 p-2">
+            <h2 class="text-slate-700">{{product.name}}</h2>
+            <p class="mt-1 text-sm text-slate-400">{{product.description}}</p>
+  
+          </div>
+        </a>
+      </article>
+    </div>
+  </section>
