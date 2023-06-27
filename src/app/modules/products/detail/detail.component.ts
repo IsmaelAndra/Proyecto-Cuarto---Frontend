@@ -13,13 +13,22 @@ export class DetailComponent {
   constructor(private productsService: ProductsService, private router: Router, private activerouter: ActivatedRoute) {}
 
   products: ProductModel = {
-    name: '',
-    price: 0,
-    description: '',
-    detailedDescription: '',
-    images: '',
-    status: true,
-    stock: 0,
+    // name: '',
+    // price: 0,
+    // description: '',
+    // detailedDescription: '',
+    // images: '',
+    // status: true,
+    // stock: 0,
+    // category: 0
+
+    name_product: '',
+    price_product: 0,
+    description_product: '',
+    detailed_description_product: '',
+    images_product: '',
+    status_product: false,
+    stock_product: 0,
     category: 0
   };
 

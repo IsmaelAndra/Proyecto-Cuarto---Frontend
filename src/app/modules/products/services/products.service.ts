@@ -7,7 +7,8 @@ import { CreateProductDto, ProductModel, UpdateProductDto } from '../entities/pr
   providedIn: 'root'
 })
 export class ProductsService {
-  readonly apiUrl = 'https://api.escuelajs.co/api/v1/products';
+
+  readonly apiUrl = 'http://localhost:3000/products';
 
   constructor(private readonly httpClient: HttpClient) { }
 
@@ -16,8 +17,8 @@ export class ProductsService {
     return this.httpClient.get<ProductModel[]>(url);
   }
 
-  getOne(id: ProductModel['id']): Observable<ProductModel>{
-    const url = `${this.apiUrl}/${id}`;
+  getOne(id_product: ProductModel['id_product']): Observable<ProductModel>{
+    const url = `${this.apiUrl}/${id_product}`;
     return this.httpClient.get<ProductModel>(url);
   }
 
@@ -27,12 +28,12 @@ export class ProductsService {
   }
 
   update(product: UpdateProductDto): Observable<ProductModel> {
-    const url = `${this.apiUrl}/${product.id}`;
-    return this.httpClient.put<ProductModel>(url, product)
+    const url = `${this.apiUrl}/${product.id_product}`;
+    return this.httpClient.patch<ProductModel>(url, product)
   }
 
-  destroy(id: ProductModel['id']):Observable<any> {
-    const url = `${this.apiUrl}/${id}`;
+  destroy(id_product: ProductModel['id_product']):Observable<any> {
+    const url = `${this.apiUrl}/${id_product}`;
     return this.httpClient.delete<any>(url).pipe(map((response: { rta: boolean; }) => {
         return response.rta;
       })

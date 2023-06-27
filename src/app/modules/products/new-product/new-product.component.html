@@ -1,0 +1,95 @@
+<section class="py-6 bg-gray-300">
+    <div class="mx-auto px-20">
+      <div class="md:grid md:grid-cols-3 md:gap-6">
+        <div class="md:col-span-1">
+          <div class="shadow sm:rounded-md sm:overflow-hidden">
+            <img src="{{products.images_product}}" alt="">
+          </div>
+        </div>
+        <div class="mt-5 md:mt-0 md:col-span-2">
+          <form action="#" method="POST" [formGroup]="nuevoForm" (ngSubmit)="submit(nuevoForm.value)">
+            <div class="shadow sm:rounded-md sm:overflow-hidden">
+              <div class="px-4 py-5 bg-white">
+                <div class="grid md:grid-cols-2 md:gap-6">
+                  <div class="relative z-0 w-full mb-6 group">
+                    <input type="text" formControlName="name_product"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-cyan-400 appearance-none dark:text-black dark:border-cyan-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" " required />
+                    <label
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nombre del Producto</label>
+                  </div>
+                  <div class="relative z-0 w-full mb-6 group">
+                    <input type="number" formControlName="price_product"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-cyan-400 appearance-none dark:text-black dark:border-cyan-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" " required />
+                    <label
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Precio del Producto</label>
+                  </div>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                  <textarea type="text" formControlName="description_product"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-sky-600 appearance-none dark:text-black dark:border-sky-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required></textarea>
+                  <label
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Descripción del Producto</label>
+                </div>
+                <div class="relative z-0 w-full mb-6 group">
+                    <textarea type="text" formControlName="detailed_description_product"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-cyan-400 appearance-none dark:text-black dark:border-cyan-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" " required></textarea>
+                    <label
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Descripción detallada del Producto</label>
+                  </div>
+                <div class="relative z-0 w-full mb-6 group ">
+                  <input type="url" [(ngModel)]="products.images_product" formControlName="images_product"
+                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-sky-600 appearance-none dark:text-black dark:border-sky-600  dark:focus:border-sky-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                    placeholder=" " required />
+                  <label
+                    class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Url de la Imagen</label>
+                </div>
+                <div class="relative z-0 w-full mb-6 group ">
+                    <input type="text" formControlName="status_product"
+                      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-cyan-400 appearance-none dark:text-black dark:border-cyan-400 dark:focus:border-sky-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                      placeholder=" " required />
+                    <label
+                      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Estado del Producto</label>
+                  </div>
+                <div class="grid md:grid-cols-2 md:gap-6">
+                    <div class="relative z-0 w-full mb-6 group">
+                      <input type="number" formControlName="stock_product"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-sky-600 appearance-none dark:text-black dark:border-sky-600  dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                      <label
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Cantidad del Producto</label>
+                    </div>
+                    <div class="relative z-0 w-full mb-6 group">
+                      <input type="number" formControlName="category"
+                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-sky-600 appearance-none dark:text-black dark:border-sky-600  dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+                        placeholder=" " required />
+                      <label
+                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Categoria del Producto</label>
+                    </div>
+                  </div>
+                <div class="flex justify-center">
+                  <button
+                    class="inline-flex mr-5 rounded-full bg-gradient-to-r from-sky-600 to-cyan-400 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+                    type="submit">
+                    <span class="block rounded-full bg-white px-8 py-3 text-sm font-medium hover:bg-transparent">
+                      Guardar
+                    </span>
+                  </button>
+                  <button
+                    class="inline-flex rounded-full bg-gradient-to-r from-sky-600 to-cyan-400 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+                    (click)="regresar()">
+                    <span class="block rounded-full bg-white px-8 py-3 text-sm font-medium hover:bg-transparent">
+                      Regresar
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>

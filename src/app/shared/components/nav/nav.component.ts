@@ -42,7 +42,7 @@ export class NavComponent implements OnInit {
     (document.querySelector("#menuCarrito") as HTMLElement).style.visibility = "hidden";
   }
 
-  deleteProduct(id: ProductModel['id']) {
+  deleteProduct(id_product: ProductModel['id_product']) {
 
     Swal.fire({
       title: '¿Estas seguro?',
@@ -61,9 +61,9 @@ export class NavComponent implements OnInit {
           timer: 1500
         })
         setTimeout(() => {
-          this.productsService.destroy(id).subscribe(
+          this.productsService.destroy(id_product).subscribe(
             response => {
-              this.products = this.products.filter(product => product.id != id);
+              this.products = this.products.filter(product => product.id_product != id_product);
               console.log(response);
               (document.querySelector("#menuCarrito") as HTMLElement).style.visibility = "hidden";
             }

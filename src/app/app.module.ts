@@ -8,12 +8,14 @@ import { LayoutModule } from './shared/layout/layout.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsModule } from './modules/products/products.module';
+import { UsersComponent } from './modules/user/users/users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    UsersComponent
   ],
   imports: [
     BrowserModule,

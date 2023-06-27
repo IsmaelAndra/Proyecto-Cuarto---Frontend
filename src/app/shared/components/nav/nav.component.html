@@ -50,7 +50,9 @@
         </span>
       </div>
     </div>
-    <div id="menuUsuario" class="absolute right-7 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+    <!-- MENU PARA LOGUEARSE -->
+
+    <!-- <div id="menuUsuario" class="absolute right-7 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
       <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
         <div>Bonnie Green</div>
         <div class="font-medium truncate">name@flowbite.com</div>
@@ -69,7 +71,7 @@
       <div class="py-1">
         <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
       </div>
-    </div>
+    </div> -->
     <div id="menuCarrito" class="absolute">
       <div class="fixed inset-0 overflow-hidden">
         <div class="absolute inset-0 overflow-hidden">
@@ -94,16 +96,16 @@
                       <ul role="list" class="-my-6 divide-y divide-gray-200">
                         <li class="flex py-6" *ngFor="let product of products">
                           <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                            <img src="{{product.images}}" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="h-full w-full object-cover object-center">
+                            <img src="{{product.images_product}}" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="h-full w-full object-cover object-center">
                           </div>
     
                           <div class="ml-4 flex flex-1 flex-col">
                             <div>
                               <div class="flex justify-between text-base font-medium text-gray-900">
                                 <h3>
-                                  <a href="#">{{product.title}}</a>
+                                  <a href="#">{{product.name_product}}</a>
                                 </h3>
-                                <p class="ml-4">${{product.price}}</p>
+                                <p class="ml-4">${{product.price_product}}</p>
                               </div>
                               <p class="mt-1 text-sm text-gray-500">Salmon</p>
                             </div>
@@ -111,7 +113,7 @@
                               <p class="text-gray-500">Qty 1</p>
     
                               <div class="flex">
-                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" (click)="deleteProduct(product.id)">Remove</button>
+                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" (click)="deleteProduct(product.id_product)">Remove</button>
                               </div>
                             </div>
                           </div>

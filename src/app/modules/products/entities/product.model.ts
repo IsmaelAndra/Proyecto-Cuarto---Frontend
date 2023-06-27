@@ -1,18 +1,18 @@
 import { CategoryModel } from "./category.model";
 
 export interface ProductModel {
-    id?: string | null;
-    name: string;
-    price: number;
-    description: string;
-    detailedDescription: string;
-    images: string;
-    status: boolean;
-    stock: number;
+    id_product?: string | null;
+    name_product: string;
+    price_product: number;
+    description_product: string;
+    detailed_description_product: string;
+    images_product: string;
+    status_product: boolean;
+    stock_product: number;
     category: number;
 }
 
-export interface CreateProductDto extends Omit<ProductModel, 'id' | 'category'>{
+export interface CreateProductDto extends Omit<ProductModel, 'id_product' | 'category'>{
     categoryId?: number;
 }
 

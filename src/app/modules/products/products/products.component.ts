@@ -21,20 +21,19 @@ export class ProductsComponent implements OnInit {
     })
   }
 
-  verProduct(id: ProductModel['id']) {
-    this.router.navigate(['product', id]);
+  verProduct(id_product: ProductModel['id_product']) {
+    this.router.navigate(['detail-product', id_product]);
   }
 
-  editarProduct(id: ProductModel['id']) {
-    this.router.navigate(['editar', id]);
+  editarProduct(id_product: ProductModel['id_product']) {
+    this.router.navigate(['editar', id_product]);
   }
 
   nuevoProduct() {
     this.router.navigate(['nuevo']);
   }
 
-  deleteProduct(id: ProductModel['id']) {
-
+  deleteProduct(id_product: ProductModel['id_product']) {
     Swal.fire({
       title: '¿Estas seguro?',
       text: "¡No podrás revertir esto!",
@@ -52,9 +51,9 @@ export class ProductsComponent implements OnInit {
           timer: 1500
         })
         setTimeout(() => {
-          this.productsService.destroy(id).subscribe(
+          this.productsService.destroy(id_product).subscribe(
             response => {
-              this.products = this.products.filter(product => product.id != id);
+              this.products = this.products.filter(product => product.id_product != id_product);
               console.log(response);
               this.router.navigate(['/products']);
             }
