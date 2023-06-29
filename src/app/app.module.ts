@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsModule } from './modules/products/products.module';
 import { UsersComponent } from './modules/user/users/users.component';
+import { HistoriesModule } from './modules/histories/histories.module';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UsersComponent } from './modules/user/users/users.component';
     AppRoutingModule,
     LayoutModule,
     ProductsModule,
+    HistoriesModule,
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule

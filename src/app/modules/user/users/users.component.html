@@ -1,9 +1,9 @@
 <section class="py-5 bg-gray-300">
     <h2 class="text-center font-serif uppercase text-4xl xl:text-5xl">Usuarios</h2>
-    <div class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4" *ngFor="let user of users">
+    <div class="mx-auto grid max-w-6xl  grid-cols-1 gap-6 p-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
     <!-- CARD -->
     <div class="w-full max-w-[300px] p-8 rounded-xl text-gray-800 dark:text-gray-400 overflow-hidden group 
-                    hover:shadow-2xl hover:shadow-sky-500/50 motion-safe:transition-all motion-safe:duration-700">
+                    hover:shadow-2xl hover:shadow-sky-500/50 motion-safe:transition-all motion-safe:duration-700" *ngFor="let user of users">
         <figure class="relative w-40 h-40 m-0 mx-auto rounded-full outline outline-offset-4 outline-sky-500 
                        before:content-[''] before:absolute before:block before:pointer-events-none before:rounded-full before:h-full before:w-full before:bg-sky-500 before:-z-[1]
                        group-hover:before:scale-[2.5] motion-safe:before:transition-all 

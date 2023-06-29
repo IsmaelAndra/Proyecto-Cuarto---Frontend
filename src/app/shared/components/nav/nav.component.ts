@@ -21,7 +21,7 @@ export class NavComponent implements OnInit {
   }
 
   histories(){
-    this.router.navigate(['history']);
+    this.router.navigate(['histories']);
   }
 
   abrirMenuUsuario() {

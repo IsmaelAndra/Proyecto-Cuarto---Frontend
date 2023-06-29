@@ -6,7 +6,7 @@
             class="w-8 h-8 -mt-1 inline mx-auto">
           <span class="mx-1 pl-2 text-white">Yavi Fashion Every Day</span>
         </span>
-        <span class="absolute ml-32 top-4">
+        <span class="absolute ml-32 top-4 sm:relative lg:absolute">
           <div class="flex">
             <select name="" id=""
               class="py-2.5 px-4 text-sm font-medium text-gray-500 bg-gray-100 border border-gray-300 rounded-l-lg cursor-pointer hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600">
@@ -32,24 +32,26 @@
             </div>
           </div>
         </span>
-        <span id="btn" class="hover:text-white cursor-pointer w-10 relative float-right mr-3" (click)="abrirMenuUsuario()" (dblclick)="cerrarMenuUsuario()">
+        <span id="btn" class="hover:text-white cursor-pointer w-10 relative float-right mr-3 sm:absolute sm:right-4 sm:top-5 lg:right-0 lg:top-0 lg:relative" (click)="abrirMenuUsuario()" (dblclick)="cerrarMenuUsuario()">
           <img
             src="https://lh3.googleusercontent.com/-U0lTbxzh0bE/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdJubMZweMDYD49ddsxq1wXai_9Cg/s48-c/photo.jpg"
             alt="alt placeholder" class="w-8 h-8 mx-auto mb-5 rounded-full">
         </span>
-        <span class="hover:text-white cursor-pointer w-10 relative float-right mr-4" (click)="abrirMenuCarrito()" (dblclick)="cerrarMenuCarrito()">
+        <span class="hover:text-white cursor-pointer w-10 relative float-right mr-4 sm:absolute sm:right-16 sm:top-5 lg:right-0 lg:top-0 lg:relative" (click)="abrirMenuCarrito()" (dblclick)="cerrarMenuCarrito()">
           <i class="fas fa-shopping-cart p-2 bg-gray-800 rounded-full w-10 h-10">
           </i>
           <span
             class="absolute right-0 top-0 -mt-1 -mr-1 text-xs text-black font-medium px-2 rounded-full bg-gradient-to-r from-sky-600 to-cyan-400">3</span>
         </span>
-        <span class="float-right mr-5 -mt-1">
+        <span class="float-right mr-5 -mt-1 sm:absolute sm:right-28 sm:top-5 lg:right-0 lg:top-0 lg:relative">
           <button class="bg-gradient-to-r from-sky-600 to-cyan-400 text-white font-bold py-2 px-4 rounded hover:bg-black" (click)="histories()">
             Historia
           </button>
         </span>
       </div>
     </div>
+
+    
     <!-- MENU PARA LOGUEARSE -->
 
     <!-- <div id="menuUsuario" class="absolute right-7 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">

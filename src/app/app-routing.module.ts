@@ -8,6 +8,7 @@ import { NewProductComponent } from './modules/products/new-product/new-product.
 import { UsersComponent } from './modules/user/users/users.component';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { RegisterComponent } from './modules/auth/register/register.component';
+import { HistoriesComponent } from './modules/histories/histories/histories.component';
 
 const routes: Routes = [
   {path: '', component:DashboardComponent},
@@ -17,8 +18,8 @@ const routes: Routes = [
   {path: 'detail-product/:id', component:DetailComponent},
   {path: 'users', component: UsersComponent},
   {path: 'login', component:LoginComponent},
-  {path: 'register', component:RegisterComponent}
-  // {path: 'history', component:HistoryComponent},
+  {path: 'register', component:RegisterComponent},
+  {path: 'histories', component:HistoriesComponent},
   // {path: 'category', component:CategoriesComponent},
 
 ];
