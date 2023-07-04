@@ -6,6 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { NewProductComponent } from './new-product/new-product.component';
+import { LayoutModule } from 'src/app/shared/layout/layout.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { NewProductComponent } from './new-product/new-product.component';
     CommonModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LayoutModule
   ],
   exports: [
     ProductsComponent,

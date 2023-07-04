@@ -17,7 +17,7 @@
               <option>Nuevo</option>
             </select>
             <div class="relative w-full">
-              <input type="search" id="location-search"
+              <input type="text" id="location-search"
                 class="block p-2.5 w-96 z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500"
                 placeholder="Buscar por categorias" required>
               <button type="submit"
@@ -34,14 +34,14 @@
         </span>
         <span id="btn" class="hover:text-white cursor-pointer w-10 relative float-right mr-3 sm:absolute sm:right-4 sm:top-5 lg:right-0 lg:top-0 lg:relative" (click)="abrirMenuUsuario()" (dblclick)="cerrarMenuUsuario()">
           <img
-            src="https://lh3.googleusercontent.com/-U0lTbxzh0bE/AAAAAAAAAAI/AAAAAAAAAAA/ACHi3rdJubMZweMDYD49ddsxq1wXai_9Cg/s48-c/photo.jpg"
+            src="{{photoUsuario}}"
             alt="alt placeholder" class="w-8 h-8 mx-auto mb-5 rounded-full">
         </span>
-        <span class="hover:text-white cursor-pointer w-10 relative float-right mr-4 sm:absolute sm:right-16 sm:top-5 lg:right-0 lg:top-0 lg:relative" (click)="abrirMenuCarrito()" (dblclick)="cerrarMenuCarrito()">
+        <span class="hover:text-white cursor-pointer w-10 relative float-right mr-4 sm:absolute sm:right-16 sm:top-5 lg:right-0 lg:top-0 lg:relative" (click)="abrirMenuCarrito()">
           <i class="fas fa-shopping-cart p-2 bg-gray-800 rounded-full w-10 h-10">
           </i>
           <span
-            class="absolute right-0 top-0 -mt-1 -mr-1 text-xs text-black font-medium px-2 rounded-full bg-gradient-to-r from-sky-600 to-cyan-400">3</span>
+            class="absolute right-0 top-0 -mt-1 -mr-1 text-xs text-black font-medium px-2 rounded-full bg-gradient-to-r from-sky-600 to-cyan-400">{{totales.cantidadTotal}}</span>
         </span>
         <span class="float-right mr-5 -mt-1 sm:absolute sm:right-28 sm:top-5 lg:right-0 lg:top-0 lg:relative">
           <button class="bg-gradient-to-r from-sky-600 to-cyan-400 text-white font-bold py-2 px-4 rounded hover:bg-black" (click)="histories()">
@@ -54,35 +54,29 @@
     
     <!-- MENU PARA LOGUEARSE -->
 
-    <!-- <div id="menuUsuario" class="absolute right-7 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+    <div id="menuUsuario" class="absolute right-7 z-10 bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
       <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
-        <div>Bonnie Green</div>
-        <div class="font-medium truncate">name@flowbite.com</div>
+        <div>{{ nombreUsuario }}</div>
+        <div class="font-medium truncate">{{ mailUsuario }}</div>
       </div>
       <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
         <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
-        </li>
-        <li>
-          <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+          <a (click)="profile()" class="cursor-pointer block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Profile</a>
         </li>
       </ul>
       <div class="py-1">
-        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+        <a (click)="logOut()" class="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
       </div>
-    </div> -->
+    </div>
     <div id="menuCarrito" class="absolute">
       <div class="fixed inset-0 overflow-hidden">
-        <div class="absolute inset-0 overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden" (click)="cerrarMenuCarrito()">
           <div class="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
             <div class="pointer-events-auto w-screen max-w-md">
               <div class="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                 <div class="flex-1 overflow-y-auto px-4 py-6 sm:px-6">
                   <div class="flex items-start justify-between">
-                    <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Shopping cart</h2>
+                    <h2 class="text-lg font-medium text-gray-900" id="slide-over-title">Carrito de Compras</h2>
                     <div class="ml-3 flex h-7 items-center">
                       <button type="button" (click)="cerrarMenuCarrito()" class="-m-2 p-2 text-gray-400 hover:text-gray-500">
                         <span class="sr-only">Close panel</span>
@@ -95,55 +89,56 @@
     
                   <div class="mt-8">
                     <div class="flow-root">
-                      <ul role="list" class="-my-6 divide-y divide-gray-200">
-                        <li class="flex py-6" *ngFor="let product of products">
-                          <div class="h-24 w-24 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
-                            <img src="{{product.images_product}}" alt="Salmon orange fabric pouch with match zipper, gray zipper pull, and adjustable hip belt." class="h-full w-full object-cover object-center">
+                      <ul role="list" class="-my-6 divide-y divide-gray-200" *ngIf="shopppingCartModel.length > 0; else carritoVacio">
+                        <li class="flex py-6" *ngFor="let item of shopppingCartModel">
+                          <div class="h-24 w-20 flex-shrink-0 overflow-hidden rounded-md border border-gray-200">
+                            <img src="{{item.images_cart}}" alt="" class="h-full w-full">
                           </div>
     
                           <div class="ml-4 flex flex-1 flex-col">
                             <div>
                               <div class="flex justify-between text-base font-medium text-gray-900">
                                 <h3>
-                                  <a href="#">{{product.name_product}}</a>
+                                  <a href="#">{{item.name_cart}}</a>
                                 </h3>
-                                <p class="ml-4">${{product.price_product}}</p>
+                                <p class="ml-4">${{item.price_cart | number: '.0-2'}}</p>
                               </div>
-                              <p class="mt-1 text-sm text-gray-500">Salmon</p>
                             </div>
                             <div class="flex flex-1 items-end justify-between text-sm">
-                              <p class="text-gray-500">Qty 1</p>
+                              <p class="text-gray-500">Cant {{item.amount_cart}}</p>
     
                               <div class="flex">
-                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" (click)="deleteProduct(product.id_product)">Remove</button>
+                                <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500" (click)="eliminarItem(item)">Remover</button>
                               </div>
                             </div>
                           </div>
                         </li>
-    
-                        <!-- More products... -->
                       </ul>
+                      <ng-template class="carritoVacio" #carritoVacio>
+                        <marquee behavior="alternate">No hay productos en el carrito.</marquee>
+                      </ng-template>
                     </div>
                   </div>
                 </div>
-    
                 <div class="border-t border-gray-200 px-4 py-6 sm:px-6">
-                  <div class="flex justify-between text-base font-medium text-gray-900">
+                  <div class="flex justify-between text-base font-medium text-gray-900" *ngIf="shopppingCartModel.length > 0; else subtotalVacio">
                     <p>Subtotal</p>
-                    <p>$262.00</p>
+                    <p>${{totales.subtotal | number: '.0-2'}}</p>
                   </div>
-                  <p class="mt-0.5 text-sm text-gray-500">Shipping and taxes calculated at checkout.</p>
+                  <ng-template #subtotalVacio>
+                    <div class="flex justify-between text-base font-medium text-gray-900">
+                      <p>Subtotal</p>
+                      <p>$0</p>
+                    </div>
+                  </ng-template>
                   <div class="mt-6">
-                    <a href="#" class="flex items-center justify-center rounded-md border border-transparent bg-indigo-600 px-6 py-3 text-base font-medium text-white shadow-sm hover:bg-indigo-700">Checkout</a>
-                  </div>
-                  <div class="mt-6 flex justify-center text-center text-sm text-gray-500">
-                    <p>
-                      or
-                      <button type="button" class="font-medium text-indigo-600 hover:text-indigo-500">
-                        Continue Shopping
-                        <span aria-hidden="true"> &rarr;</span>
-                      </button>
-                    </p>
+                    <button (click)="proceder()"
+                      class="flex w-full rounded-full bg-gradient-to-r from-sky-600 to-cyan-400 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75"
+                      >
+                      <span class="block w-full rounded-full bg-white px-8 py-3 text-sm font-medium hover:bg-transparent">
+                        Proceder a Pagar
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>

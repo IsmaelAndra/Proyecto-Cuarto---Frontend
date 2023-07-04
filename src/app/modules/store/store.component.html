@@ -1,0 +1,83 @@
+<div>
+  <div>
+    <app-nav></app-nav>
+    <app-sidebar></app-sidebar>
+    <main class="ml-16 -mb-96 pb-2 mt-2 mr-2">
+      <app-breadcrumb></app-breadcrumb>
+
+
+<div class="pt-6 pb-12 bg-gray-300">
+  <h2 class="text-center font-serif uppercase text-4xl xl:text-5xl mb-5">Store</h2>
+  <div class="mx-auto max-w-7xl justify-center px-6 md:flex md:space-x-4 xl:px-0">
+    <div class="rounded-lg md:w-2/3">
+      <div class="justify-between mb-6 rounded-lg bg-white p-5 shadow-md sm:flex sm:justify-start">
+        <div class="w-full bg-white px-10 py-5 divide-y divide-gray-200">
+          <div class="flex mt-0 mb-5">
+            <h3 class="font-semibold text-gray-600 text-xs uppercase w-2/5">Detalle de Producto</h3>
+            <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">Cantidad</h3>
+            <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">Precio</h3>
+            <h3 class="font-semibold text-center text-gray-600 text-xs uppercase w-1/5">Total</h3>
+          </div>
+          <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5" *ngFor="let store of storeModel">
+            <div class="flex w-2/5">
+              <div class="w-20">
+                <img class="h-24 w-24" src="{{store.images_cart}}" alt="">
+              </div>
+              <div class="flex flex-col justify-between ml-4 flex-grow">
+                <span class="font-bold text-sm">{{store.name_cart}}</span>
+                <span class="text-red-500 text-xs">Apple</span>
+                <a class="font-semibold hover:text-red-500 cursor-pointer text-gray-500 text-xs"
+                  (click)="eliminarItem(store)">Remove</a>
+              </div>
+            </div>
+            <div class="flex justify-center w-1/5">
+              <span class="text-center w-1/5 font-semibold text-sm">{{store.amount_cart}}</span>
+            </div>
+            <span class="text-center w-1/5 font-semibold text-sm">${{store.price_cart}}</span>
+            <span class="text-center w-1/5 font-semibold text-sm">${{store.subtotal_cart | number: '.0-2'}}</span>
+          </div>
+          <a href="javascript:history.back()" class="flex font-semibold text-indigo-600 text-sm mt-10">
+            <svg class="fill-current mr-2 text-indigo-600 w-4" viewBox="0 0 448 512">
+              <path
+                d="M134.059 296H436c6.627 0 12-5.373 12-12v-56c0-6.627-5.373-12-12-12H134.059v-46.059c0-21.382-25.851-32.09-40.971-16.971L7.029 239.029c-9.373 9.373-9.373 24.569 0 33.941l86.059 86.059c15.119 15.119 40.971 4.411 40.971-16.971V296z" />
+            </svg>
+            Continuar Comprando
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Sub total -->
+    <div class="mt-6 h-full rounded-lg border bg-white p-6 shadow-md md:mt-0 md:w-1/4">
+      <div class="mb-2 flex justify-between">
+        <p class="text-gray-700">Subtotal</p>
+        <p class="text-gray-700">${{totales.subtotal | number: '.0-2'}}</p>
+      </div>
+      <div class="flex justify-between">
+        <p class="text-gray-700">IVA</p>
+        <p class="text-gray-700">${{totales.iva | number: '.0-2'}}</p>
+      </div>
+      <hr class="my-4" />
+      <div class="flex justify-between">
+        <p class="text-lg font-bold">Total</p>
+        <div class="">
+          <p class="mb-1 text-lg font-bold">${{totales.total | number: '.0-2'}} USD</p>
+          <p class="text-sm text-gray-700">incluido IVA</p>
+        </div>
+      </div>
+      <div class="pt-4">
+        <button type="submit"
+          class="flex w-full rounded-full bg-gradient-to-r from-sky-600 to-cyan-400 p-[2px] hover:text-white focus:outline-none focus:ring active:text-opacity-75">
+          <span class="block w-full rounded-full bg-white px-8 py-3 text-sm font-medium hover:bg-transparent">
+            Pagar
+          </span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</main>
+<app-footer></app-footer>
+</div>
+</div>

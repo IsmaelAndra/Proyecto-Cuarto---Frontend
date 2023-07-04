@@ -18,26 +18,26 @@ export class RegisterComponent implements OnInit{
   }
 
   users: UserModel = {
-    photo_user: '',
+    photo_user: 'https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg',
     name_user: '',
     lastname_user: '',
     mail_user: '',
     address_user: '',
     phone_user: '',
-    date_of_birth_user: '',
+    date_of_birth_user: new Date(),
     password_user: '',
     password_validation_user: '',
     status_user: false
   };
 
   nuevoUser = new FormGroup({
-    photo_user: new FormControl(''),
+    photo_user: new FormControl('https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg'),
     name_user: new FormControl(''),
     lastname_user: new FormControl(''),
     mail_user: new FormControl(''),
     address_user: new FormControl(''),
     phone_user: new FormControl(''),
-    date_of_birth_user: new FormControl(''),
+    date_of_birth_user: new FormControl(new Date()),
     password_user: new FormControl(''),
     password_validation_user: new FormControl(''),
     status_user: new FormControl(false)

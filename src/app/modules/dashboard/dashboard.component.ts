@@ -11,6 +11,6 @@ export class DashboardComponent {
   constructor(private router:Router) {}
 
   product() {
-    this.router.navigate(['/products']);
+    this.router.navigate(['products']);
   }
 }

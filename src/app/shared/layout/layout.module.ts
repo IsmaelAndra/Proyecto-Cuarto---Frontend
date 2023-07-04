@@ -6,6 +6,7 @@ import { FooterComponent } from '../components/footer/footer.component';
 import { BreadcrumbComponent } from '../components/breadcrumb/breadcrumb.component';
 import { LayoutComponent } from './layout.component';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,9 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   exports: [
     LayoutComponent,

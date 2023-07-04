@@ -1,4 +1,4 @@
-<div class="bg-no-repeat bg-cover bg-center relative"
+<div class="bg-cover relative w-full h-full rounded-tl-lg rounded-tr-lg"
   style="background-image: url(https://yavirac.edu.ec/img/slider/instalacion1-1.png);">
   <div class="absolute bg-gradient-to-r from-sky-600 to-cyan-400 opacity-75 inset-0 z-0"></div>
   <div class="min-h-screen sm:flex sm:flex-row mx-0 justify-center">
@@ -13,7 +13,7 @@
       <div class="px-12 py-8 bg-white rounded-2xl w-100 ">
         <div class="mb-4">
           <h3 class="font-semibold text-2xl text-gray-800">Crea tu cuenta</h3>
-          <p class="text-gray-500">¿Ya tienes una cuenta? <a href="#" class="text-sky-600  hover:text-cyan-400">Entre aquí.</a></p>
+          <p class="text-gray-500">¿Ya tienes una cuenta? <a [routerLink]="['/login']" class="text-sky-600  hover:text-cyan-400">Entre aquí.</a></p>
         </div>
         <form action="#" method="POST" [formGroup]="nuevoUser" (ngSubmit)="submit(nuevoUser.value)">
         <div class="grid md:grid-cols-2 md:gap-6">
@@ -34,7 +34,7 @@
         </div>
         <div class="relative z-0 w-full mb-6 group ">
           <input type="mail" formControlName="mail_user"
-            class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-sky-600 appearance-none dark:text-black dark:border-sky-600  dark:focus:border-sky-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+            class="block peer py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-sky-600 appearance-none dark:text-black dark:border-sky-600  dark:focus:border-sky-600 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
             placeholder=" " required />
           <label
             class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Correo Electronico</label>
@@ -55,7 +55,7 @@
               class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Número</label>
           </div>
           <div class="relative z-0 w-full mb-6 group">
-            <input type="text" formControlName="date_of_birth_user"
+            <input type="date" formControlName="date_of_birth_user"
               class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-cyan-400 appearance-none dark:text-black dark:border-cyan-400 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder=" " required />
             <label

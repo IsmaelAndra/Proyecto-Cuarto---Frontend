@@ -3,6 +3,7 @@ import Swal from 'sweetalert2';
 import { ProductModel } from '../entities/product.model';
 import { ProductsService } from '../services/products.service';
 import { Router } from '@angular/router';
+import { TokenService } from '../../auth/services/token.service';
 
 @Component({
   selector: 'app-products',
@@ -13,24 +14,28 @@ export class ProductsComponent implements OnInit {
   
   products: ProductModel[] = [];
 
-  constructor(private productsService: ProductsService, private router: Router) { }
+  constructor(private productsService: ProductsService, private router: Router, private tokenService:TokenService) {
+    this.nombreUsuario = this.tokenService.getUserNameFromToken();
+    this.idUsuario = this.tokenService.getUserIdFromToken();
+  }
 
   ngOnInit(): void {
     this.productsService.getAll().subscribe(data => {
       this.products = data;
     })
+    this.tokenService.getUserNameFromToken();
   }
 
   verProduct(id_product: ProductModel['id_product']) {
-    this.router.navigate(['detail-product', id_product]);
+    this.router.navigate(['products/detail-product', id_product]);
   }
 
   editarProduct(id_product: ProductModel['id_product']) {
-    this.router.navigate(['editar', id_product]);
+    this.router.navigate(['products/editar-product', id_product]);
   }
 
   nuevoProduct() {
-    this.router.navigate(['nuevo']);
+    this.router.navigate(['products/nuevo-product']);
   }
 
   deleteProduct(id_product: ProductModel['id_product']) {
@@ -61,5 +66,22 @@ export class ProductsComponent implements OnInit {
         }, 1700);
       }
     })
+  }
+
+  logOut(): void {
+    localStorage.clear();
+    this.router.navigate(['auth/login']);
+  }
+
+  nombreUsuario: string | null = null ;
+
+  idUsuario: string | null = null ;
+
+  getUserNameFromToken() {
+    this.nombreUsuario = this.tokenService.getUserNameFromToken();
+  }
+
+  getUserIdFromToken() {
+    this.idUsuario = this.tokenService.getUserIdFromToken();
   }
 }

@@ -52,7 +52,6 @@ export class EditProductComponent implements OnInit {
       console.log(productId);
       console.log(this.editForm.value);
     })
-
   }
 
   submit(data: any) {

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TokenService } from 'src/app/modules/auth/services/token.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class SidebarComponent {
 
+  constructor(private tokenService:TokenService){
+    this.nombreUsuario = this.tokenService.getUserNameFromToken();
+    this.mailUsuario = this.tokenService.getUserMailFromToken();
+    this.photoUsuario = this.tokenService.getUserPhotoFromToken();
+  }
+  mailUsuario: string | null = null ;
+  nombreUsuario: string | null = null ;
+  photoUsuario: string | null = null ;
 }

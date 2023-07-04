@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductModel } from 'src/app/modules/products/entities/product.model';
-import { ProductsService } from 'src/app/modules/products/services/products.service';
-import Swal from 'sweetalert2';
+import { TokenService } from 'src/app/modules/auth/services/token.service';
+import { ShopppingCartModel, ShopppingCartModelTotals } from 'src/app/modules/shopping-cart/entities/shopping-cart.entity';
+import { ShoppingCartService } from 'src/app/modules/shopping-cart/services/shopping-cart.service';
 
 @Component({
   selector: 'app-nav',
@@ -10,14 +10,33 @@ import Swal from 'sweetalert2';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-  products: ProductModel[] = [];
+  shopppingCartModel: ShopppingCartModel[] = [];
+  totales: ShopppingCartModelTotals = {
+    subtotal: 0,
+    iva: 0,
+    total: 0,
+    cantidadTotal: 0
+  };
 
-  constructor(private productsService: ProductsService, private router: Router) { }
+  constructor(private router: Router, private shoppingCartService: ShoppingCartService, private tokenService:TokenService) {
+    this.shopppingCartModel = shoppingCartService.shopppingCartModel;
+    this.totales = shoppingCartService.totales;
+    this.idUsuario = this.tokenService.getUserIdFromToken();
+    this.nombreUsuario = this.tokenService.getUserNameFromToken();
+    this.mailUsuario = this.tokenService.getUserMailFromToken();
+    this.photoUsuario = this.tokenService.getUserPhotoFromToken();
+  }
 
   ngOnInit(): void {
-    this.productsService.getAll().subscribe(data => {
-      this.products = data;
-    })
+  }
+
+  eliminarItem(item: ShopppingCartModel) {
+    this.shoppingCartService.eliminarItem(item);
+  }
+
+  proceder(){
+    this.router.navigate(['store/store']);
+    (document.querySelector("#menuCarrito") as HTMLElement).style.visibility = "hidden";
   }
 
   histories(){
@@ -42,34 +61,18 @@ export class NavComponent implements OnInit {
     (document.querySelector("#menuCarrito") as HTMLElement).style.visibility = "hidden";
   }
 
-  deleteProduct(id_product: ProductModel['id_product']) {
+  logOut(): void {
+    localStorage.clear();
+    this.router.navigate(['/login']);
+    (document.querySelector("#menuUsuario") as HTMLElement).style.visibility = "hidden";
+  }
 
-    Swal.fire({
-      title: '¿Estas seguro?',
-      text: "¡No podrás revertir esto!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: '¡Si, remuevelo!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          icon: 'success',
-          title: 'Removido con Exito',
-          showConfirmButton: false,
-          timer: 1500
-        })
-        setTimeout(() => {
-          this.productsService.destroy(id_product).subscribe(
-            response => {
-              this.products = this.products.filter(product => product.id_product != id_product);
-              console.log(response);
-              (document.querySelector("#menuCarrito") as HTMLElement).style.visibility = "hidden";
-            }
-          );
-        }, 1700);
-      }
-    })
+  nombreUsuario: string | null = null ;
+  idUsuario: string | null = null ;
+  photoUsuario: string | null = null ;
+  mailUsuario: string | null = null ;
+
+  profile(){
+    this.router.navigate(['users/profile', this.idUsuario]);
   }
 }

@@ -1,0 +1,9 @@
+#MeEncanta {
+    color:gray;
+    background-color: rgb(223, 223, 223);
+}
+
+#MeEncanta:hover {
+    color:white;
+    background-color: red;
+}
